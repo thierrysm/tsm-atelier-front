@@ -1,0 +1,93 @@
+.card {
+  display: block;
+  text-decoration: none;
+}
+
+.imageContainer {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: #f3f4f6; /* Um cinza um pouco mais claro */
+  aspect-ratio: 7 / 8;
+  position: relative; /* Para a imagem se ajustar corretamente */
+}
+
+.productImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .productImage {
+  opacity: 0.75;
+}
+
+/* ✨ NOVO CONTAINER PARA NOME E CORES ✨ */
+.detailsContainer {
+  display: flex;
+  justify-content: space-between; /* Alinha os itens nas extremidades */
+  align-items: center; /* Alinha verticalmente */
+  margin-top: 1rem;
+  gap: 0.5rem; /* Espaço entre o nome e as cores */
+}
+
+.productName {
+  font-size: 0.875rem;
+  color: #1f2937;
+  /* Permite que o nome quebre a linha se for muito longo */
+  white-space: normal;
+  text-overflow: ellipsis;
+}
+
+/* ✨ ESTILOS DE PREÇO ATUALIZADOS ✨ */
+
+/* Container para quando há dois preços (original + promo) */
+.priceContainer {
+  display: flex;
+  align-items: center; /* Alinha os textos pela base */
+  gap: 0.5rem; /* Espaço entre os preços */
+  margin-top: 0.25rem;
+}
+
+/* Estilo para o preço original (riscado e cinza) */
+.originalPrice {
+  font-size: 0.875rem; /* Um pouco menor */
+  color: #6b7280; /* Cinza */
+  text-decoration: line-through;
+}
+
+/* Estilo para o preço promocional (vermelho e em destaque) */
+.promotionalPrice {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #dc2626; /* Um tom de vermelho forte */
+}
+
+/* Estilo para o preço quando NÃO há promoção */
+.regularPrice {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.colorInfo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Impede que o bloco de cores encolha */
+}
+
+.colorSwatch {
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+  border-radius: 0.25rem; /* 4px */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-right: 0.5rem;
+}
+
+.additionalColors {
+  font-size: 0.75rem; /* 12px */
+  color: #6b7280;
+  font-weight: 500;
+}

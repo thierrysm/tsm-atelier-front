@@ -1,27 +1,25 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  /* ✨ CORREÇÃO: A cor do texto (foreground) deve ser escura para contrastar. ✨ */
+  --foreground: #111827; /* Um preto suave, comum em designs modernos */
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* ✨ DEFINA A NOVA PILHA DE FONTES AQUI ✨ */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  /* Garante que o scroll X seja evitado */
+  overflow-x: hidden;
+  
+  /* Regras para esconder a barra de scroll (se desejar manter) */
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 * {
@@ -35,8 +33,113 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* --- Estilos do Drawer --- */
+.body-no-scroll {
+  overflow: hidden;
+}
+
+/* Container principal do Drawer */
+.drawer-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1500;
+  visibility: hidden; /* Começa escondido */
+  transition: visibility 0.3s ease-in-out;
+}
+.drawer-container.open {
+  visibility: visible; /* Fica visível quando a classe .open é adicionada */
+}
+
+/* Fundo escurecido (overlay) */
+.drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Começa transparente */
+  transition: opacity 0.4s ease-in-out;
+  backdrop-filter: blur(2px); /* Efeito de blur sutil */
+}
+.drawer-container.open .drawer-overlay {
+  opacity: 1; /* Fica opaco quando aberto */
+}
+
+/* Painel lateral que desliza */
+.drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  min-width: 400px;
+  max-width: 500px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+  
+  /* ✨ A ANIMAÇÃO DE SLIDE É DEFINIDA AQUI ✨ */
+  transform: translateX(100%); /* Posição inicial: fora da tela à direita */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform; /* Otimização de performance */
+}
+.drawer-container.open .drawer-panel {
+  transform: translateX(0); /* Posição final: desliza para dentro da tela */
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .drawer-panel {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+/* Botão de fechar (que já existe no Drawer genérico) */
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease-in-out;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #374151;
+  transform: scale(1.1);
+}
+
+input,
+button,
+textarea,
+select,
+label {
+  font-family: inherit; /* ✨ A Mágica Acontece Aqui ✨ */
+}
+
+/* Adiciona padding ao corpo da página para compensar o header fixo */
+body.has-header-offset {
+  padding-top: 5.5rem; /* Altura para Desktop */
+}
+
+@media (max-width: 768px) {
+  body.has-header-offset {
+    padding-top: 3.5rem; /* Altura para Mobile e Tablet */
   }
 }

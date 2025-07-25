@@ -1,0 +1,60 @@
+.container { 
+  color: #333; 
+}
+
+.container h2 { 
+  font-weight: 300; 
+  font-size: 18px;
+  margin-bottom: 1rem; 
+  
+}
+
+/* ✨ 1. TORNA O WRAPPER UM CONTEXTO DE POSICIONAMENTO ✨ */
+.imageWrapper {
+  position: relative; /* Essencial para posicionar as etiquetas sobre a imagem */
+  margin-bottom: 1.5rem;
+  line-height: 0; /* Remove qualquer espaço extra abaixo da imagem */
+  
+}
+
+/* ✨ 2. CRIA O ESTILO PARA AS ETIQUETAS DE MEDIDA ✨ */
+.measurementLabel {
+  position: absolute;
+  left: 5%; /* Distância da borda esquerda */
+  background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+  padding: 0.5rem; /* 4px 10px */
+  border-radius: 4px;
+  font-size: 0.8rem; /* 13px */
+  color: #111;
+  font-weight: 300;
+  /* Centraliza a etiqueta verticalmente em relação à sua posição 'top' */
+  transform: translateY(-40%); 
+  white-space: nowrap; /* Evita que o texto quebre a linha */
+  border: solid 2px black;
+}
+
+.selector { 
+  display: flex; 
+  gap: 0.5rem; 
+  border-bottom: 1px solid #eee; 
+  padding-bottom: 1rem; 
+  margin-bottom: 1rem; 
+}
+
+.sizeButton { 
+  padding: 0.5rem 1rem; 
+  border: none; 
+  background: none; 
+  cursor: pointer; 
+  font-weight: 600; 
+  color: #888; 
+}
+
+.sizeButton.selected { 
+  color: #111; 
+  border-bottom: 2px solid #111; 
+}
+
+/* A lista <ul> de medidas não é mais necessária, mas mantemos o estilo caso precise no futuro */
+.measurements ul { list-style: none; padding: 0; }
+.measurements li { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #f5f5f5; }

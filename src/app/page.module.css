@@ -1,3 +1,51 @@
-.page {
-  background-color: blue;
+/* Remove margens padrão para que as imagens colem nas bordas */
+.main {
+  padding: 0;
+  margin: 0;
+  border: solid 2px red;
+}
+
+/* Seção 1: Herói de tela cheia */
+.heroSection {
+  position: relative; /* Essencial para o 'fill' do Next/Image funcionar */
+  width: 100%;
+  height: 100vh; /* Ocupa 100% da altura da tela */
+}
+
+/* Camada opcional sobre a imagem do herói para texto ou botões */
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+/* Seção 2: Container para as duas imagens */
+.splitSection {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Opcional: faz a segunda seção também ocupar a tela toda */
+  background-color: #000; /* Fundo para caso as imagens demorem a carregar */
+}
+
+/* Container individual para cada uma das duas imagens */
+.splitImageContainer {
+  position: relative; /* Essencial para o 'fill' do Next/Image */
+  width: 50%;
+  height: 100%;
+}
+
+/* Responsividade para telas de celular */
+@media (max-width: 768px) {
+  .splitSection {
+    flex-direction: column; /* Empilha as imagens verticalmente */
+  }
+
+  .splitImageContainer {
+    width: 100%;
+    height: 50%; /* Cada imagem ocupa metade da altura da seção */
+  }
 }

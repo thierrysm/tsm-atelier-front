@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// ✨ As importações de 'next/font' foram removidas ✨
 import "./globals.css";
+import { Providers } from "./providers";
+import { ModalProvider } from "@/context/ModalContext";
+import HeaderWrapper from "@/components/Header/HeaderWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// ✨ As constantes 'geistSans' e 'geistMono' foram removidas ✨
 
 export const metadata: Metadata = {
   title: "TSM Atelier",
@@ -24,8 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      {/* ✨ As classes de fonte foram removidas do body ✨ */}
+      <body>
+        <Providers>
+           <ModalProvider>
+            <HeaderWrapper />
+               {children}
+          </ModalProvider>
+        </Providers>
       </body>
     </html>
   );
