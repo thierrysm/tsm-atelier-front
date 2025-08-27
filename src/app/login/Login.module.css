@@ -1,0 +1,244 @@
+.pageContainer {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr; /* Padrão de uma coluna para mobile */
+}
+
+/* Em telas maiores, divide em duas colunas */
+@media (min-width: 768px) {
+  .pageContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 4rem;
+  margin-left: 4rem;
+  border: solid 2px red;
+}
+
+.benefitsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 4rem;
+  border: solid 2px red;
+}
+
+.title {
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  font-size: 15px;
+  color: #000000;
+}
+
+.form {
+  width: 100%;
+  max-width: 380px;
+}
+
+.inputGroup {
+  position: relative; /* Define o container como referência para o label */
+  margin-bottom: 2.5rem; /* Aumenta o espaço para o label animado */
+}
+
+.inputGroup label {
+  display: block;
+  font-size: 13px;
+  color: #a7a2a7;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  position: absolute;
+  top: 0.5rem; /* Posição inicial, alinhada com o texto do input */
+  left: 0;
+  font-size: 13px; /* Tamanho inicial, igual ao do input */
+  color: #888;
+  pointer-events: none; /* Permite clicar através do label no input */
+  transition: all 0.2s ease-in-out; /* Define a animação */
+  z-index: 0;
+}
+
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  top: -1.2rem; /* Move o label para cima */
+  left: 0;
+  font-size: 10px; /* Diminui o tamanho da fonte */
+  color: #888;
+  z-index: 2;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  background-color: transparent;
+  /* Garante que o input fique na frente da linha, mas atrás do texto */
+  position: relative;
+  z-index: 1;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom-color: #111;
+}
+
+.submitButton, .registerButton {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: 1px solid #111;
+  transition: all 0.3s ease;
+}
+
+.submitButton {
+  background-color: #111;
+  color: white;
+  margin-top: 1rem;
+}
+.submitButton:hover {
+  background-color: #2e2d2d;
+}
+.submitButton:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.registerButton {
+  background-color: transparent;
+  color: #111;
+  margin-top: 0.75rem;
+}
+.registerButton:hover {
+  background-color: #e0dfdc;
+}
+
+.forgotPasswordLink {
+  display: block; /* Mantemos o block para poder controlar o alinhamento */
+  width: fit-content; /* ✨ FAZ A "CAIXA" DO LINK TER O TAMANHO EXATO DO CONTEÚDO ✨ */
+  margin-left: auto; /* ✨ EMPURRA A "CAIXA" (AGORA DO TAMANHO CERTO) PARA A DIREITA ✨ */
+  margin-right: 0; /* Garante que não haja margem extra à direita */
+  
+  /* O resto dos seus estilos que já estavam corretos */
+  font-size: 11px;
+  color: #111;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forgotPasswordLink:hover {
+  text-decoration: underline;
+}
+
+.alternativeAction {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 11px; /* ✨ Tamanho da fonte ajustado */
+  color: #555; /* Mantém a cor do texto não-link um pouco mais suave */
+}
+
+.link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #111; /* ✨ Cor preta */
+  cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.benefitsBox {
+  background-color: #F6F5F3; /* Um tom de marrom avermelhado, como no exemplo */
+  padding: 2rem;
+  max-width: 400px;
+}
+
+/* Garante que o título dentro da caixa também use a cor branca */
+.benefitsBox .title {
+  color: rgb(3, 3, 3);
+}
+
+/* Garante que os ícones dentro da caixa fiquem brancos */
+.benefitsBox .benefitItem svg {
+  color: #352e28;
+}
+
+/* Ajusta a linha divisória entre os itens para ser mais sutil no fundo escuro */
+.benefitsBox .benefitItem {
+  border-bottom-color: rgba(78, 73, 73, 0.2);
+}
+
+.benefitsBox .benefitItem:last-child {
+  border-bottom: none; /* Remove a borda do último item */
+}
+
+/* Estilos para a coluna de benefícios */
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  color: #000;
+  font-size: 14px;
+}
+
+.titleBenefitItem {
+    font-size: 18px;
+    color: #000;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  margin-top: 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 0.9rem;
+}
+
+.benefitItem:first-child {
+  padding-top: 0;
+}
+
+.benefitItem svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: #16a34a; /* Verde */
+  background-color: #f0fdf4;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}

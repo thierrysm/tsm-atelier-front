@@ -1,0 +1,289 @@
+.pageWrapper {
+  padding-top: 40px;
+  background-color: rgb(160, 153, 153);
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  margin-left: 4rem;
+  background-color: rgb(160, 153, 153);
+}
+
+@media (min-width: 768px) {
+  .mainContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 0 2rem;
+  }
+}
+
+.imageGallery {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Lista vertical para os thumbnails */
+.thumbnailList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Estilo para cada thumbnail individual */
+.thumbnailItem {
+  width: 60px;
+  height: 80px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* ✨ EFEITO DE THUMBNAIL INATIVO ✨ */
+/* Aplica um filtro de escala de cinza e um pouco de opacidade */
+.thumbnailInactive {
+  filter: grayscale(20%);
+  opacity: 0.6;
+}
+
+/* Quando o mouse passa por cima de um thumbnail inativo, ele ganha cor */
+.thumbnailItem:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* ✨ CLASSE PARA O THUMBNAIL ATIVO ✨ */
+/* Garante que o thumbnail ativo tenha cor total e uma borda preta */
+.thumbnailActive {
+  border-color: #111827;
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✨ WRAPPER DA IMAGEM PRINCIPAL COM POSIÇÃO RELATIVA ✨ */
+.mainImageWrapper {
+  flex: 1;
+  position: relative; /* Essencial para posicionar os botões de seta dentro dele */
+  aspect-ratio: 7 / 8;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✨ ESTILOS PARA OS BOTÕES DE NAVEGAÇÃO ✨ */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 9999px;
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  opacity: 0; /* Começa invisível */
+}
+
+/* As setas aparecem quando o mouse está sobre a imagem principal */
+.mainImageWrapper:hover .navArrow {
+  opacity: 1;
+}
+
+.navArrow:hover {
+  background-color: white;
+}
+
+.prevArrow {
+  left: 0.75rem; /* 12px */
+}
+
+.nextArrow {
+  right: 0.75rem; /* 12px */
+}
+
+.detailsWrapper {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  padding-right: 7rem;
+  padding-top: 1rem;
+}
+
+/* Remova ou substitua suas classes .productName e .productPrice por estas: */
+
+.productName {
+  /* margin-top: 10rem; <-- REMOVIDO */
+  font-size: 18px; /* 18px */
+  font-weight: 300;
+  color: #111827;
+}
+
+/* Container para quando há dois preços (original + promo) */
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Estilo para o preço original (riscado e cinza) */
+.originalPrice {
+  font-size: 18px;
+  color: #6b7280;
+  text-decoration: line-through;
+}
+
+/* Estilo para o preço promocional (vermelho e em destaque) */
+.promotionalPrice {
+  font-size: 18px;
+  font-weight: 300;
+  color: #dc2626;
+}
+
+/* Estilo para o preço quando NÃO há promoção */
+.regularPrice {
+  font-size: 18px;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  color: #111827;
+}
+
+.divider {
+  border-top: 1px solid #000000;
+  margin: 2rem 0rem;
+}
+
+.selectorContainer {
+  margin-bottom: 1.5rem;
+}
+
+.selectorLabel {
+  font-size: 11px;
+  font-weight: 300;
+  margin-bottom: 0.75rem;
+  color: #000;
+}
+
+.swatchGroup {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.colorSwatch {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.selectedSwatch {
+  /* A sombra interna (branca) cria o espaçamento de 2px.
+     A sombra externa (preta) cria a borda de 2px. */
+  box-shadow: 0 0 0 3px white, 0 0 0 4px #111827;
+}
+
+.sizeGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+/* ✨ ESTILO ATUALIZADO/NOVO PARA O LINK ✨ */
+.sizeGuideLink {
+  font-size: 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #47494d; /* Cor sutil */
+
+  /* A mágica acontece aqui: a margem automática empurra o link para a direita */
+  margin-left: auto;
+  
+  /* Adiciona um pouco de espaço para não colar nos botões */
+  padding-left: 1rem; 
+}
+
+.sizeButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #afafaf;
+  border-radius: 4px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: solid 1px black;
+}
+
+.sizeButton:hover {
+  border-color: #111827;
+}
+
+.selectedSize {
+  background-color: #888a8b;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+/* ✨ ESTILO ATUALIZADO/ADICIONADO PARA BOTÕES DESABILITADOS ✨ */
+/* O seletor :disabled é ativado automaticamente quando o botão tem o atributo 'disabled' */
+.sizeButton:disabled {
+  opacity: 0.4; /* Deixa o botão meio transparente/desfocado */
+  text-decoration: line-through; /* Tacha o texto do tamanho */
+  background-color: rgb(196, 183, 183);
+  border-color: #6d6c6c;
+  color: #000000;
+}
+
+.addToCartButton {
+  width: 100%;
+  padding: 0.75rem;
+  color: #000000;
+  font-weight: 300;
+  cursor: pointer;
+  border: solid 1px black;
+  transition: background-color 0.2s;
+}
+
+.addToCartButton:hover {
+  background-color: #b8b8bd;
+}
+
+.addToCartButton:disabled {
+  cursor: not-allowed;
+}
+
+.detailsSection {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.skuText {
+  margin-top: 1rem;
+  color: #6b7280;
+}

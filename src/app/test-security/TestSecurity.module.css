@@ -1,0 +1,99 @@
+/* app/test-security/TestSecurity.module.css */
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background-color: #f4f4f9;
+  min-height: calc(100vh - 80px); /* Ajuste a altura do seu header se for diferente */
+  margin-top: 80px; /* Espaçamento para o header fixo */
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sessionStatus {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  font-size: 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.card button {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.card button:hover:not(:disabled) {
+  background-color: #3b3a3a;
+  transform: translateY(-2px);
+}
+
+.card button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.result {
+  background-color: #eef7ff;
+  border: 1px solid #d0eaff;
+  color: #333;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 5px;
+  white-space: pre-wrap; /* Quebra de linha */
+  word-wrap: break-word;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  border-color: #ffcdd2;
+}
+
+.success {
+  color: #2e7d32;
+}
